@@ -4,12 +4,13 @@ import { FiAlignJustify } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenSidebar } from "../slices/authSlice";
 import UserAvatar from "./UserAvatar";
+import NotificationPanel from "./NotificationPanel";
 
 const Navbar = () => {
   //   const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
   return (
-    <div className="sticky top-0 z-10 flex items-center justify-between px-4 py-3 bg-white 2xl:py-4">
+    <div className="flex sticky top-0 z-10 justify-between items-center px-4 py-3 bg-white 2xl:py-4">
       <div className="flex gap-4">
         <button
           className="block text-2xl text-gray-500 md:hidden"
@@ -28,8 +29,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        {/* <NotificationPanel /> */}
+      <div className="flex gap-2 items-center">
+        <NotificationPanel />
         <UserAvatar />
       </div>
     </div>
