@@ -9,11 +9,10 @@ import Button from "../components/Button";
 import { IoMdAdd } from "react-icons/io";
 import Tabs from "../components/Tabs";
 import TaskTitle from "../components/TaskTitle";
-import BoardView from "../components/BoardView";
+import BoardView from "../components/task/BoardView";
 import { tasks } from "../assets/data";
-import Table from "../components/task/Table";
-// import Table from "../components/task/Table";
-// import AddTask from "../components/task/AddTask";
+import TableView from "../components/task/TableView";
+import AddTask from "../components/task/AddTask";
 
 const TABS = [
   { title: "Board View", icon: <MdGridView /> },
@@ -48,27 +47,28 @@ const Tasks = () => {
             label="Create Task"
             icon={<IoMdAdd className="text-lg" />}
             className="flex flex-row-reverse gap-1 items-center bg-blue-600 text-white rounded-md py-2 2xl:py-2.5"
+            onClick={() => setOpen(true)}
           />
         )}
       </div>
 
-      <div>
-        <Tabs tabs={TABS} selected={selected} setSelected={setSelected}>
-          {!status && (
-            <div className="flex justify-between w-full gap-4 py-4 md:gap-12">
-              <TaskTitle label="To Do" className={TASK_TYPE.todo} />
-              <TaskTitle
-                label="In Progress"
-                className={TASK_TYPE["in progress"]}
-              />
-              <TaskTitle label="Completed" className={TASK_TYPE.completed} />
-            </div>
-          )}
+      <Tabs tabs={TABS} selected={selected} setSelected={setSelected}>
+        {!status && (
+          <div className="flex justify-between w-full gap-4 py-4 md:gap-12">
+            <TaskTitle label="To Do" className={TASK_TYPE.todo} />
+            <TaskTitle
+              label="In Progress"
+              className={TASK_TYPE["in progress"]}
+            />
+            <TaskTitle label="Completed" className={TASK_TYPE.completed} />
+          </div>
+        )}
 
-          {selected === 0 && <BoardView tasks={tasks} />}
-          {selected === 1 && <Table tasks={tasks} />}
-        </Tabs>
-      </div>
+        {selected === 0 && <BoardView tasks={tasks} />}
+        {selected === 1 && <TableView tasks={tasks} />}
+      </Tabs>
+
+      <AddTask open={open} setOpen={setOpen} />
     </div>
   );
 };

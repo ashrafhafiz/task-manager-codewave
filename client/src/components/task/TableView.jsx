@@ -14,7 +14,7 @@ import clsx from "clsx";
 import { FaList } from "react-icons/fa";
 import UserInfo from "../UserInfo";
 import Button from "../Button";
-import ConfirmatioDialog from "../Dialog";
+import ConfirmatioDialog from "../Dialogs";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -22,7 +22,7 @@ const ICONS = {
   low: <MdKeyboardArrowDown />,
 };
 
-const Table = ({ tasks }) => {
+const TableView = ({ tasks }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
 
@@ -149,4 +149,4 @@ const Table = ({ tasks }) => {
   );
 };
 
-export default Table;
+export default TableView;

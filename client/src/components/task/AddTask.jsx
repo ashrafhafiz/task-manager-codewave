@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import ModalWrapper from "../ModalWrapper";
-import { Dialog } from "@headlessui/react";
+import { Dialog, DialogTitle } from "@headlessui/react";
 import Textbox from "../Textbox";
 import { useForm } from "react-hook-form";
 import UserList from "./UserList";
@@ -41,12 +41,12 @@ const AddTask = ({ open, setOpen }) => {
     <>
       <ModalWrapper open={open} setOpen={setOpen}>
         <form onSubmit={handleSubmit(submitHandler)}>
-          <Dialog.Title
+          <DialogTitle
             as="h2"
             className="mb-4 text-base font-bold leading-6 text-gray-900"
           >
             {task ? "UPDATE TASK" : "ADD TASK"}
-          </Dialog.Title>
+          </DialogTitle>
 
           <div className="flex flex-col gap-6 mt-2">
             <Textbox
